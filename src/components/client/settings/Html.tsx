@@ -8,12 +8,12 @@ import { ThemeSwitch } from './ThemeSwitch';
 const inter = Inter({ subsets: ['latin'] });
 
 export const Html = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<'night' | 'emerald'>('night');
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   return (
     <html lang="en" data-theme={theme}>
       <body className={`${inter.className}`}>
-        <ThemeSwitch theme={theme} setTheme={setTheme} />
+        {/* <ThemeSwitch theme={theme} setTheme={setTheme} /> */}
         {children}
       </body>
     </html>

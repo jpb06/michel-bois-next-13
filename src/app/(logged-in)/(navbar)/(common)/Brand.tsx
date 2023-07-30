@@ -5,8 +5,8 @@ type BrandProps = {
 };
 
 export const Brand = ({ displayName = false }: BrandProps) => (
-  <div className="flex-1">
-    <ImageIcon className="w-12 text-teal-600" />
+  <div className="flex-1 text-success">
+    <ImageIcon className="w-12" />
     {displayName && <span className="text-xl normal-case">Michel Bois</span>}
   </div>
 );

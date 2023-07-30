@@ -6,22 +6,22 @@ import { LoginButton } from '~/components/client/login/login-button/LoginButton'
 
 export const LoginPage = async () => {
   const session = await getServerSession(authOptions);
-  if (!session) {
-    return (
-      <>
-        <div className="form-control mt-6">
-          <LoginButton provider="google">Login with google</LoginButton>
-        </div>
-        <div className="form-control mt-1">
-          <LoginButton provider="github">Login with github</LoginButton>
-        </div>
-        <div className="divider">OR</div>
-        <div className="form-control mt-1">
-          <LoginButton provider="email">Login by email</LoginButton>
-        </div>
-      </>
-    );
+  if (session) {
+    redirect('/');
   }
 
-  redirect('/');
+  return (
+    <>
+      <div className="form-control mt-6">
+        <LoginButton provider="google">Login with google</LoginButton>
+      </div>
+      <div className="form-control mt-1">
+        <LoginButton provider="github">Login with github</LoginButton>
+      </div>
+      <div className="divider text-accent">OR</div>
+      <div className="form-control mt-1">
+        <LoginButton provider="email">Login by email</LoginButton>
+      </div>
+    </>
+  );
 };

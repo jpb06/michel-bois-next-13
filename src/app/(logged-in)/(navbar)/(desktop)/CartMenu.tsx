@@ -1,7 +1,7 @@
 import { CartIcon } from '~/components/generic/icons';
 
 export const CartMenu = async () => (
-  <div className="dropdown-end dropdown">
+  <div className="dropdown-end dropdown px-2">
     <label tabIndex={0} className="btn btn-circle btn-ghost">
       <div className="indicator">
         <CartIcon />
