@@ -5,12 +5,12 @@ const imgs = [
   '/img/tmp/Ventotene.jpg',
   '/img/tmp/1998 - Clue Italie.JPG',
   "/img/tmp/2012 - Parc Estiennes d'Orves.jpeg",
-  '/img/tmp/2009 - Bataillé Chatélaillon.jpg',
+  '/img/tmp/2009 - Bataille Chatélaillon.jpg',
   '/img/tmp/Acqueduc Antibes.jpg',
   '/img/tmp/Unknown - 18.jpg',
-  '/img/tmp/2005 - Araignée.jpg',
+  '/img/tmp/2005 - Araignee.jpg',
   '/img/tmp/1998 - Jean de Vienne.JPG',
-  '/img/tmp/Bataillé.jpg',
+  '/img/tmp/Bataille.jpg',
 ];
 
 export const Carousel = () => (
