@@ -5,7 +5,7 @@ import './globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { Html } from '~/components/client/settings/Html';
 
-import { GitHubIcon, ImageIcon } from '../components/generic/icons';
+//import { GitHubIcon, ImageIcon } from '../components/generic/icons';
 
 export const metadata = {
   title: 'Michel Bois',

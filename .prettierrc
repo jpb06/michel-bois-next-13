@@ -3,6 +3,5 @@
   "printWidth": 80,
   "bracketSpacing": true,
   "bracketSameLine": false,
-  "singleQuote": true,
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "singleQuote": true
 }

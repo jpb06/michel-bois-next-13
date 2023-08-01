@@ -1,4 +1,4 @@
-import { ProfileMenu } from './(desktop)/ProfileMenu';
+//import { ProfileMenu } from './(desktop)/ProfileMenu';
 
 export const DesktopMenuContent = () => (
   <div className="hidden flex-none lg:block">

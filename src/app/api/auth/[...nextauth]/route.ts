@@ -5,8 +5,8 @@ import EmailProvider from 'next-auth/providers/email';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 
-import { prisma } from '~/database';
-import { createUser } from '~/database/users/create-user.db';
+import { prisma } from '~/server/database';
+import { createUser } from '~/server/database/users/create-user.db';
 
 import { env } from '~env';
 
