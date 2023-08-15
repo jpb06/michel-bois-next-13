@@ -1,6 +1,6 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
-import { WithCssProperties } from '~/components/generic/icons/types/with-css-properties.type';
+import type { WithCssProperties } from '~/components/generic/icons/types/with-css-properties.type';
 
 type IconButtonProps = {
   onClick: () => void;

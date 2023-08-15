@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   plugins: ['import', 'prettier', '@typescript-eslint'],
   extends: [
+    'plugin:react/recommended',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
@@ -10,11 +11,11 @@ module.exports = {
     'next/core-web-vitals',
   ],
   parser: '@typescript-eslint/parser',
-  env: {
-    es2020: true,
-    jest: true,
-    node: true,
-  },
+  // env: {
+  //   es2020: true,
+  //   // jest: true,
+  //   node: true,
+  // },
   rules: {
     'array-bracket-newline': ['error', 'consistent'],
     'array-bracket-spacing': ['error', 'never'],
@@ -38,6 +39,7 @@ module.exports = {
       },
     ],
     'computed-property-spacing': ['error', 'never'],
+    'no-case-declarations': ['error'],
     'default-case': ['off'],
     'default-case-last': ['off'],
     'dot-location': ['error', 'property'],
@@ -82,7 +84,7 @@ module.exports = {
     'no-console': [
       'warn',
       {
-        allow: ['warn', 'error'],
+        allow: ['info', 'warn', 'error'],
       },
     ],
     'no-dupe-keys': 'error',
@@ -100,14 +102,6 @@ module.exports = {
     'no-return-await': 'error',
     'no-trailing-spaces': 'error',
     'no-unneeded-ternary': 'error',
-    'no-unused-vars': [
-      'warn',
-      {
-        varsIgnorePattern: '^_',
-        argsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_',
-      },
-    ],
     'no-useless-return': 'error',
     'prefer-arrow-callback': 'error',
     'prefer-const': [
@@ -116,7 +110,7 @@ module.exports = {
         destructuring: 'all',
       },
     ],
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error'],
     'template-curly-spacing': ['error', 'never'],
     'arrow-body-style': ['error', 'as-needed'],
     '@typescript-eslint/array-type': [
@@ -134,6 +128,13 @@ module.exports = {
       },
     ],
     curly: 'error',
-    'tailwindcss/classnames-order': ['off'],
+    'tailwindcss/classnames-order': 'off',
+    'react/self-closing-comp': [
+      'error',
+      {
+        component: true,
+        html: true,
+      },
+    ],
   },
 };

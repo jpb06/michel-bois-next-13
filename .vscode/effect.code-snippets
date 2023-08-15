@@ -1,27 +1,7 @@
 {
-  "Import effect": {
+  "Import effect and pipe": {
     "prefix": "eff",
-    "body": ["import * as Effect from '@effect/io/Effect'"],
-    "description": "Import effect"
-  },
-  "Import effect predicate": {
-    "prefix": "eff-predicate",
-    "body": ["import * as Predicate from '@effect/data/Predicate'"],
-    "description": "Import effect predicate"
-  },
-  "Import effect array": {
-    "prefix": "eff-array",
-    "body": ["import * as Array from '@effect/data/ReadonlyArray'"],
-    "description": "Import effect array"
-  },
-  "Import effect option": {
-    "prefix": "eff-option",
-    "body": ["import * as Option from '@effect/data/Option'"],
-    "description": "Import effect option"
-  },
-  "Import effect string": {
-    "prefix": "eff-str",
-    "body": ["import * as Str from '@effect/data/String'"],
-    "description": "Import effect string"
+    "body": ["import { pipe, Effect } from 'effect'"],
+    "description": "Import effect and pipe"
   }
 }

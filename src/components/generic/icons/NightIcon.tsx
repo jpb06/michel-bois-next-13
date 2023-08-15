@@ -1,4 +1,4 @@
-import { WithCssProperties } from './types/with-css-properties.type';
+import type { WithCssProperties } from './types/with-css-properties.type';
 
 export const NightIcon = ({ style, className }: WithCssProperties) => (
   <svg

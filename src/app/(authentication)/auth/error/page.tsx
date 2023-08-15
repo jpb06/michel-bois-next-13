@@ -1,5 +1,6 @@
 import { DisplayToast } from '~/components/client/generic/display-toast/DisplayToast';
-import { LoginPage } from '~/components/login/LoginPage';
+
+import { LoginPage } from '../../(common)/LoginPage';
 
 type ErrorPageProps = {
   searchParams: { error: string };

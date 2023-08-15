@@ -17,9 +17,12 @@ export const Avatar = async () => {
   const name = session.user.name ?? '';
 
   return (
-    <label tabIndex={0} className="avatar placeholder btn btn-circle btn-ghost">
+    <label
+      tabIndex={0}
+      className="avatar placeholder btn btn-circle btn-ghost mt-5"
+    >
       <div
-        className="h-14 w-14 min-w-max rounded-full text-neutral-content"
+        className="h-14 w-14 min-w-max rounded-full text-neutral-content opacity-70 ring-1 ring-success hover:opacity-90"
         style={{ backgroundColor: stringToColor(name) }}
       >
         {hasImage ? (

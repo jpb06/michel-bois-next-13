@@ -1,4 +1,4 @@
-import { WithCssProperties } from '~/components/generic/icons/types/with-css-properties.type';
+import type { WithCssProperties } from '~/components/generic/icons/types/with-css-properties.type';
 
 export const BurgerIcon = ({ style, className }: WithCssProperties) => (
   <svg
@@ -13,6 +13,6 @@ export const BurgerIcon = ({ style, className }: WithCssProperties) => (
       strokeLinejoin="round"
       strokeWidth="2"
       d="M4 6h16M4 12h16M4 18h16"
-    ></path>
+    />
   </svg>
 );

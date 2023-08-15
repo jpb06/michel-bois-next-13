@@ -1,5 +1,5 @@
-import { LoginPage } from '~/components/login/LoginPage';
+import { LoginPage } from '../(common)/LoginPage';
 
-const Login = () => <LoginPage />;
+const Page = () => <LoginPage />;
 
-export default Login;
+export default Page;

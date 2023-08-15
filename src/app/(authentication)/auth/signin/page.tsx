@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
-import { LoginPage as LoginBasePage } from '~/components/login/LoginPage';
+import { LoginPage as LoginBasePage } from '../../(common)/LoginPage';
 
 type LoginPageProps = {
   searchParams: { callbackUrl?: string };

@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import './globals.css';
@@ -12,7 +12,9 @@ export const metadata = {
 
 const RootLayout = ({ children }: PropsWithChildren) => (
   <Html>
-    {children}
+    <div className="flex min-h-screen flex-col">
+      <div className="grow">{children}</div>
+    </div>
     <ToastContainer position="top-center" />
   </Html>
 );

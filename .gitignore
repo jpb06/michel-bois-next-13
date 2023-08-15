@@ -33,3 +33,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/assets
+public/cloud/
+prisma/seeding/common-datasets/assets/data/img

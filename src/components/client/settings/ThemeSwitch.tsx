@@ -1,8 +1,7 @@
-'use client';
+import { usePathname } from 'next/navigation';
+import type { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
 
-import { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
-
-type Theme = 'night' | 'emerald';
+type Theme = 'light' | 'dark';
 
 type ThemeSwitchProps = {
   theme: Theme;
@@ -10,18 +9,24 @@ type ThemeSwitchProps = {
 };
 
 export const ThemeSwitch = ({ theme, setTheme }: ThemeSwitchProps) => {
+  const pathName = usePathname();
+
   const handleThemeChanged: ChangeEventHandler<HTMLInputElement> = (event) => {
-    event.target.checked ? setTheme('night') : setTheme('emerald');
+    event.target.checked ? setTheme('dark') : setTheme('light');
   };
 
+  if (pathName === '/login') {
+    return null;
+  }
+
   return (
-    <div className="flex w-full justify-end sm:justify-center">
-      <div className="absolute z-10 right-6 top-8 sm:right-auto sm:top-20 sm:bg-sky-900 sm:rounded-3xl sm:transition sm:duration-500 sm:delay-100 sm:ease-in-out sm:hover:scale-125">
+    <div className="flex w-full justify-center">
+      <div className="absolute right-auto top-8 z-50 rounded-3xl bg-secondary/70 transition delay-100 duration-500 ease-in-out hover:scale-125 hover:bg-secondary/90 lg:top-20">
         <div className="tooltip tooltip-bottom" data-tip="App theme">
           <input
             type="checkbox"
             className="toggle toggle-lg mx-2 mt-1.5"
-            checked={theme === 'night'}
+            checked={theme === 'dark'}
             onChange={handleThemeChanged}
           />
         </div>

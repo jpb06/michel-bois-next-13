@@ -1,6 +1,6 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
-import { LoginLayout } from '~/components/login/LoginLayout';
+import { LoginLayout } from '../../(common)/LoginLayout';
 
 const ErrorLayout = ({ children }: PropsWithChildren) => (
   <LoginLayout>{children}</LoginLayout>
