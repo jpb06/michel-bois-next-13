@@ -19,7 +19,7 @@ export const CarouselImage = ({
   direction,
 }: CarouselImageProps) => (
   <Motion.div
-    className="m-8 w-full sm:w-fit"
+    className="m-8 w-full flex justify-center"
     whileHover={{ scale: 1.05 }}
     initial={{
       opacity: 0,
