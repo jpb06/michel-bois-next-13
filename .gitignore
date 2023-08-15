@@ -34,5 +34,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-assets
+/assets
 public/cloud/
+prisma/seeding/common-datasets/assets/data/img

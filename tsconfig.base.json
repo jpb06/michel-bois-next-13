@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "baseUrl": "./src",
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "verbatimModuleSyntax": true,
+    "incremental": true,
+    "paths": {
+      "~/*": ["./*"],
+      "~env": ["./../env.mjs"],
+      "~/components/generic/*": ["./components/generic/*"],
+      "~/components/client/*": ["./components/client/*"],
+      "~/server": ["./server/index.ts"],
+      "~/server/*": ["./server/*"],
+      "~/db": ["./server/database/index.ts"]
+    }
+  }
+}

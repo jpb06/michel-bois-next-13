@@ -1,4 +1,4 @@
-import { WithCssProperties } from '~/components/generic/icons/types/with-css-properties.type';
+import type { WithCssProperties } from '~/components/generic/icons/types/with-css-properties.type';
 
 export const AddIcon = ({ style, className }: WithCssProperties) => (
   <svg

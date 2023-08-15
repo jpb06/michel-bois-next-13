@@ -1,12 +1,12 @@
 //import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 import { Brand } from './(navbar)/(common)/Brand';
 import { DrawerContent } from './(navbar)/DrawerContent';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 
-const Navbar = async ({ children }: PropsWithChildren) => {
+const Layout = async ({ children }: PropsWithChildren) => {
   const session = await getServerSession(authOptions);
   if (!session) {
     //redirect('/login');
@@ -17,7 +17,7 @@ const Navbar = async ({ children }: PropsWithChildren) => {
       <input id="navbar-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         <div className="z-40 flex w-full justify-center">
-          <div className="navbar absolute -top-6 w-72 rounded-3xl bg-secondary/70 transition delay-100 duration-300 ease-in-out hover:translate-y-8 hover:bg-secondary">
+          <div className="navbar absolute -top-6 w-72 rounded-3xl bg-secondary/70 transition delay-100 duration-300 ease-in-out hover:translate-y-8 hover:bg-gradient-to-r hover:from-secondary hover:to-primary hover:shadow-2xl">
             <label
               htmlFor="navbar-drawer"
               className="btn btn-square btn-ghost rounded-2xl"
@@ -36,4 +36,4 @@ const Navbar = async ({ children }: PropsWithChildren) => {
   );
 };
 
-export default Navbar;
+export default Layout;

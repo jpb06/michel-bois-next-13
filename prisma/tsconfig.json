@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": false,
+    "paths": {
+      "~/server": ["../src/server/index.ts"],
+      "~/server/*": ["../src/server/*"],
+      "~/db": ["../src/server/database/instance/prisma.instance.ts"]
+    }
+  },
+  "include": [
+    "../src/server/**/*.ts",
+    "./**/*.ts",
+    "../src/server/hofs/tap-all.hof.temp"
+  ],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+    "swc": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}

@@ -1,5 +1,4 @@
-import { LogoutMenuItem } from '~/components/client/login/logout-menu-item/LogoutMenuItem';
-
+import { LogoutMenuItemClient } from './(client)/(logout-menu-item)/LogoutMenuItemClient';
 import { Avatar } from './(common)/(avatar)/Avatar';
 
 type MobileDrawerContentProps = {
@@ -19,7 +18,7 @@ export const DrawerContent = ({ userName }: MobileDrawerContentProps) => (
         <a>Settings</a>
       </li>
       <li className="mx-2 text-xl">
-        <LogoutMenuItem />
+        <LogoutMenuItemClient />
       </li>
     </ul>
   </div>

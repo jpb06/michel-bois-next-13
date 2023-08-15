@@ -1,5 +1,5 @@
 import { usePathname } from 'next/navigation';
-import { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
+import type { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
 
 type Theme = 'light' | 'dark';
 

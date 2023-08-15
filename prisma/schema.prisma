@@ -6,9 +6,13 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL")
+  directUrl         = env("POSTGRES_URL_NON_POOLING")
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
+
+// Auth realm
 
 model Account {
   id     String @id @default(uuid()) @db.Uuid
@@ -50,6 +54,7 @@ model User {
 
   accounts Account[]
   sessions Session[]
+  Comment  Comment[]
 }
 
 model VerificationToken {
@@ -58,4 +63,52 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+// Assets realm
+
+model Asset {
+  id String @id @default(uuid()) @db.Uuid
+
+  documentKey        String
+  placeholderDataUri String
+  month              Int?
+  year               Int?
+  name               String
+  description        String?
+  width              Int
+  height             Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Comment Comment[]
+}
+
+model JoinAssetTag {
+  idAsset String @db.Uuid
+  idTag   String @db.Uuid
+
+  @@id([idAsset, idTag])
+}
+
+model Tag {
+  id String @id @default(uuid()) @db.Uuid
+
+  name String
+}
+
+model Comment {
+  id String @id @default(uuid()) @db.Uuid
+
+  idAsset String @db.Uuid
+  idUser  String @db.Uuid
+
+  content String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  asset Asset @relation(fields: [idAsset], references: [id])
+  user  User  @relation(fields: [idUser], references: [id])
 }

@@ -1,15 +1,23 @@
-import { PrismaClient } from '@prisma/client';
+import dotenv from 'dotenv-flow';
+import { Effect, Layer, pipe } from 'effect';
 
-const prisma = new PrismaClient();
+dotenv.config({
+  silent: true,
+});
 
-const main = async () => {};
+import { DatabaseLive, R2FileStorageLive } from '~/server';
+import { disconnect } from '~/server/database/effects/disconnect';
 
-main()
-  .then(async () => {
-    await prisma.$disconnect();
-  })
-  .catch(async (e) => {
-    console.error(e);
-    await prisma.$disconnect();
-    process.exit(1);
-  });
+import { seedDevEnv } from './seeding/dev/seed-dev-env';
+
+const task = pipe(
+  seedDevEnv(),
+  Effect.catchAll((error) => Effect.fail(error)),
+  Effect.flatMap(disconnect),
+  Effect.provideLayer(Layer.merge(DatabaseLive, R2FileStorageLive)),
+);
+
+Effect.runPromise(task).catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
