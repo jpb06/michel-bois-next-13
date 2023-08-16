@@ -1,5 +1,9 @@
 'use client';
 
+import {
+  ArrowLeftCircleIcon,
+  ArrowRightCircleIcon,
+} from '@heroicons/react/24/solid';
 import { useState } from 'react';
 
 import type { Direction } from './CarouselImage';
@@ -41,17 +45,14 @@ export const CarouselClient = ({ pictures }: CarouselClientProps) => {
         onClick={handlePrevious}
         className="left-5"
         visible={hasPrevious}
-      >
-        {'<'}
-      </CarouselNavButton>
+        Icon={ArrowLeftCircleIcon}
+      />
       <CarouselNavButton
         onClick={handleNext}
         className="right-5"
         visible={hasNext}
-      >
-        {'>'}
-      </CarouselNavButton>
-
+        Icon={ArrowRightCircleIcon}
+      />
       <div className="h-screen w-full">
         <div className="flex flex-row justify-center content-center flex-wrap sm:flex-nowrap w-full h-screen overflow-hidden">
           <CarouselImage {...currentPicture} direction={direction} />

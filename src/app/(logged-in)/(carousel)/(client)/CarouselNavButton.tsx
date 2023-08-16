@@ -1,27 +1,23 @@
-import type { PropsWithChildren } from 'react';
-
 type CarouselNavButtonProps = {
+  Icon: React.ElementType;
   onClick: () => void;
   className: string;
   visible: boolean;
 };
 
 export const CarouselNavButton = ({
-  children,
+  Icon,
   onClick,
   className,
   visible,
-}: PropsWithChildren<CarouselNavButtonProps>) => {
+}: CarouselNavButtonProps) => {
   if (!visible) {
     return null;
   }
 
   return (
-    <button
-      className={`btn btn-primary btn-circle absolute z-10 hover:scale-125 hover:bg-accent top-5 ${className}`}
-      onClick={onClick}
-    >
-      {children}
+    <button className={`absolute z-10 top-5 ${className}`} onClick={onClick}>
+      <Icon className="w-16 text-accent hover:text-yellow-500 opacity-60 hover:opacity-75 hover:scale-125 transition duration-500" />
     </button>
   );
 };
