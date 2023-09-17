@@ -1,20 +1,32 @@
-import { pipe, Effect } from 'effect';
+import chalk from 'chalk';
+import { Effect } from 'effect';
 
-import { compressFile } from './logic/compress-file';
+import { compressFile } from './logic/compress-file.logic';
 import { generatePlaceholder } from './logic/generate-placeholder.logic';
-import { reportFileUpload } from './logic/report-file-upload.logic';
 import { uploadAndPersist } from './logic/upload-and-persist.logic';
-import { SeededAsset } from '../../types/seeded-asset.type';
+import { assetsSeedData } from '../../data/assets.data';
+import type { SeededAsset } from '../../data/assets.data';
 
-export const integrateItem = (asset: SeededAsset) =>
-  pipe(
-    compressFile(asset.fileName),
-    Effect.flatMap(([fileData, metadata]) =>
-      pipe(
-        generatePlaceholder(asset.fileName, fileData),
-        uploadAndPersist(asset, fileData, metadata),
-      ),
-    ),
-    reportFileUpload(asset.fileName),
-    Effect.map(([, asset]) => asset),
-  );
+const findSeededAsset = (filePath: string) =>
+  assetsSeedData.find(({ fileName }) =>
+    filePath.endsWith(fileName),
+  ) as SeededAsset;
+
+export const integrateItem = (filePath: string) =>
+  Effect.gen(function* (_) {
+    const asset = findSeededAsset(filePath);
+
+    const [fileData, metadata] = yield* _(compressFile(asset.fileName));
+
+    const placeholderDataUrl = yield* _(
+      generatePlaceholder(asset.fileName, fileData),
+    );
+
+    const [, persistedAsset] = yield* _(
+      uploadAndPersist(asset, fileData, metadata, placeholderDataUrl),
+    );
+
+    console.info(chalk.green.bold(`'${asset.fileName}' added`));
+
+    return persistedAsset;
+  });

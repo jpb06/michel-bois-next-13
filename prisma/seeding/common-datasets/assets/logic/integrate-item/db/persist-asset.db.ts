@@ -2,7 +2,7 @@ import { Effect } from 'effect';
 
 import { tapDatabase } from '~/server';
 
-import { SeededAsset } from '../../../types/seeded-asset.type';
+import { SeededAsset } from '../../../data/assets.data';
 
 type AssetInput = Pick<
   SeededAsset,

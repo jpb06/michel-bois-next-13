@@ -1,9 +1,9 @@
-import { pipe, Effect } from 'effect';
+import { Effect } from 'effect';
 import { sqip, SqipResult } from 'sqip';
 
-export const generatePlaceholder = (fileName: string, buffer: Buffer) =>
-  pipe(
-    Effect.tryPromise(() =>
+const blurImage = (fileName: string, buffer: Buffer) =>
+  Effect.tryPromise(
+    () =>
       sqip({
         plugins: [
           {
@@ -19,12 +19,12 @@ export const generatePlaceholder = (fileName: string, buffer: Buffer) =>
           0,
           fileName.lastIndexOf('.'),
         )}.svg`,
-      }),
-    ),
-    Effect.map(
-      (result) =>
-        `data:image/svg+xml;base64,${(result as SqipResult).content.toString(
-          'base64',
-        )}`,
-    ),
+      }) as Promise<SqipResult>,
   );
+
+export const generatePlaceholder = (fileName: string, buffer: Buffer) =>
+  Effect.gen(function* (_) {
+    const result = yield* _(blurImage(fileName, buffer));
+
+    return `data:image/svg+xml;base64,${result.content.toString('base64')}`;
+  });
